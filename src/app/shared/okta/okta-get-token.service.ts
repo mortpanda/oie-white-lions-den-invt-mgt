@@ -27,7 +27,7 @@ export class OktaGetTokenService {
     console.log('From GetAccessToken Service');
     console.log(this.myAccessToken.accessToken);
     this.strUserName = this.myAccessToken.claims.sub;
-    console.log("username for the stateToken : " + this.strUserName);
+    console.log("username for the token : " + this.strUserName);
   }
 
 }

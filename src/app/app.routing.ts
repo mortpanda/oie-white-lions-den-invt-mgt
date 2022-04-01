@@ -5,13 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 import {LandingComponent} from 'app/landing/landing.component';
 import {SamplePageComponent} from 'app/sample-page/sample-page.component';
 import {StartComponent} from 'app/start/start.component';
-
+import {InventoryListComponent} from 'app/inventory-list/inventory-list.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: LandingComponent },
   { path: 'start', component: StartComponent },
+  { path: 'inventory', component: InventoryListComponent },
   
   // { path: 'profilev2', component: Profilev2Component },
   // { path: 'store', component: SwagstoreComponent },

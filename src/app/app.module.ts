@@ -46,6 +46,7 @@ import { SamplePageComponent } from './sample-page/sample-page.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 import { StartComponent } from './start/start.component';
+import { InventoryListComponent } from './inventory-list/inventory-list.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { StartComponent } from './start/start.component';
     SamplePageComponent,
     AuthNoticeComponent,
     StartComponent,
+    InventoryListComponent,
     //AuthNoticeComponent,
    
     
