@@ -6,27 +6,41 @@
   font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
     "Cantarell", "Helvetica Neue", sans-serif !important;
   color: #41414b !important;
-  overflow-y: scroll!important;
+  overflow-y: scroll!important;   
 }
+
+/* Hide the scrollbar byu still allow scroll : Chrome, Safari and Opera */
+.mainContainer::-webkit-scrollbar {
+  display: none;
+}
+/* Hide the scrollbar byu still allow scroll :  IE, Edge and Firefox */
+.mainContainer {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 .mainUserNameItem {
   /* border-style: dotted !important; */
   width: 50% !important;
   margin: 7px !important;
+  margin-bottom: 20px !important;
   text-align: center !important;
   font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
     "Cantarell", "Helvetica Neue", sans-serif !important;
   font-size: 16px !important;
   font-weight: 500 !important;
   color: #41414b !important;
+  
 }
 
 .mainContainerItem {
   /* border-style: dotted!important; */
-  width: 100% !important;
+  width: 95% !important;
   /* margin: 7px!important; */
   font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
     "Cantarell", "Helvetica Neue", sans-serif !important;
   color: #41414b !important;
+  margin-bottom: 20px!important;
 }
 
 table {
@@ -63,6 +77,8 @@ td.mat-cell:last-child {
   padding-left: 15px!important; 
   /* border: 1px solid grey !important; */
   height:auto!important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
 }
 
 .mat-header-cell {
@@ -71,10 +87,45 @@ td.mat-cell:last-child {
   background-color: #892100 !important;
   color: #ffffff !important;
   height:auto!important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
 }
+
 
 .noMatch{
   color: #892100!important;
   font-size: 16px!important;
   font-weight: 500!important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+}
+.mat-focused .mat-form-field-label {
+  color: #892100 !important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+  "Cantarell", "Helvetica Neue", sans-serif !important;
+}
+.mat-form-field-ripple {
+  background-color: #892100 !important;
+}
+
+
+
+.okta_banner {
+  width: 100% !important;
+  margin-top: 50px !important;
+  margin-bottom: 10px !important;
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  text-align: end !important;
+  padding-right: 40px!important;
+}
+
+.okta_ciam {
+  width: 200px !important;
+  height: auto !important;
+}
+.areaSpacer{
+  /* border-style: dotted !important; */
+  width:100%!important;
+  height:60px!important;
 }

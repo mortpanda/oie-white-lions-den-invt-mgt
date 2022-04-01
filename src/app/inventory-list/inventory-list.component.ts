@@ -31,7 +31,7 @@ export class InventoryListComponent implements OnInit {
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   // displayedColumns: string[] = ['name', 'desc', 'manu', 'itemcode'];
 
-  displayedColumns: string[] = ['name', 'manu', 'desc', 'itemcode'];
+  displayedColumns: string[] = ['name', 'category', 'designer','manu',  'stockCount','itemcode','itemPrice'];
 
   constructor(
     public OktaGetTokenService: OktaGetTokenService,
