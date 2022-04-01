@@ -47,6 +47,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 import { StartComponent } from './start/start.component';
 import { InventoryListComponent } from './inventory-list/inventory-list.component';
+import { InventoryPopupComponent } from './inventory-popup/inventory-popup.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { InventoryListComponent } from './inventory-list/inventory-list.componen
     AuthNoticeComponent,
     StartComponent,
     InventoryListComponent,
+    InventoryPopupComponent,
     //AuthNoticeComponent,
    
     
@@ -105,6 +107,7 @@ import { InventoryListComponent } from './inventory-list/inventory-list.componen
   ],
   providers: [
     OktaSDKAuthService,    
+    InventoryPopupComponent
   ], 
 
   

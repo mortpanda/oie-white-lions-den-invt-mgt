@@ -4,6 +4,7 @@ export interface ProductStock {
   id: Number;
   manu: string;
   itemcode: string;
+  
   stockCount:Number;
 }
 

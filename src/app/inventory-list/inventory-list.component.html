@@ -8,13 +8,17 @@
       <div class="mainUserNameItem">
         {{ OktaGetTokenService.strUserName }}
       </div>
+      <div class="mainUserNameItem">
+
+        <mat-form-field appearance="legacy" [style.width.px]=350>
+          <mat-label>フィルター</mat-label>
+          <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+          <mat-icon matSuffix>filter_list</mat-icon>
+        </mat-form-field>
+      </div>
       <div class="mainContainerItem" fxLayout="columns wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-          <!-- Position Column -->
-          <!-- <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-          </ng-container> -->
+
 
           <!-- Name Column -->
           <ng-container matColumnDef="name">
@@ -39,7 +43,12 @@
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openProduct(row)"></tr>
+
+          <!-- Row shown when there is no matching data. -->
+          <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell noMatch" colspan="4">"{{input.value}}" は見つかりませんでした。</td>
+          </tr>
 
         </table>
 
