@@ -16,6 +16,7 @@
           <mat-icon matSuffix>filter_list</mat-icon>
         </mat-form-field>
       </div>
+      
       <div class="mainContainerItem" fxLayout="columns wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -56,12 +57,14 @@
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openProduct(row)"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openProduct(row)" ></tr>
 
           <!-- Row shown when there is no matching data. -->
           <tr class="mat-row" *matNoDataRow>
             <td class="mat-cell noMatch" colspan="4">"{{input.value}}" は見つかりませんでした。</td>
           </tr>
+
+          
 
         </table>
 

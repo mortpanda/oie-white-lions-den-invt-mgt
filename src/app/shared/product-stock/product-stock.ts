@@ -77,7 +77,7 @@ export const ProductItems = [
     itemPrice: 5560000,
     stockCount:10,
     designer:"Børge Mogensen",
-    imgPath:"assets/img/product_img/bm1006.png",
+    imgPath:"assets/img/product_img/bm1106.png",
   }, 
   {
     name: "Embrace Chair",
@@ -110,7 +110,7 @@ export const ProductItems = [
     itemPrice: 1960000,
     stockCount:10,
     designer:"Kaare Klint",
-    imgPath:"assets/img/product_img/kk96620.png",
+    imgPath:"assets/img/product_img/kk99620.png",
   }, 
   {
     name: "Large Red Armchair",

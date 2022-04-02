@@ -129,3 +129,8 @@ td.mat-cell:last-child {
   width:100%!important;
   height:60px!important;
 }
+
+.mat-row:hover {
+  background-color: #D7D7DC!important;
+  
+}

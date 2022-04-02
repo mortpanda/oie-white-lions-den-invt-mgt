@@ -1,4 +1,22 @@
-<p>inventory-popup works!</p>
+<div class="productMainContainer" fxLayout="columns wrap" fxLayoutAlign="center center">
+  <div class="productName">
+    {{this.arrProductItem.name}}
+  </div>
+  <div class="imgDiv">
+    <img src="{{ this.arrProductItem.imgPath }}" class="productImg">
+  </div>
 
+  <div class="itemAttribute">{{this.arrProductItem.itemcode}}</div>
+  <div class="itemAttribute">{{this.arrProductItem.itemPrice  | currency : 'JPY': true}}</div>
+  <div class="itemAttribute">{{this.arrProductItem.stockCount}}</div>
+  <div class="itemAttribute">{{this.arrProductItem.manu}}</div>
 
-{{this.selectedMessage}}
+  <div class="productDesc">
+    {{this.arrProductItem.desc}}
+  </div>
+</div>
+
+<div>
+  <a routerLink="/start" class="btnLion btn" id="login">メニュー</a>
+  <a class="btnLion btn" id="logout" (click)="Logout()">ログアウト</a>
+</div>

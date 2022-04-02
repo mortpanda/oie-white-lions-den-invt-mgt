@@ -44,6 +44,8 @@ export class InventoryListComponent implements OnInit {
 
   ) { }
 
+
+  
   strUserSession: Boolean;
 
   async ngOnInit() {
@@ -76,8 +78,8 @@ export class InventoryListComponent implements OnInit {
 itemRow;
   openProduct(row): void {
     let dialogRef = this.dialog.open(InventoryPopupComponent, {
-      width: '600px', height: '850',
-      data: { row }
+      width: 'auto', height: 'auto',
+      data: { row },
     });
 
     dialogRef.afterClosed().subscribe(result => { row = result; });
