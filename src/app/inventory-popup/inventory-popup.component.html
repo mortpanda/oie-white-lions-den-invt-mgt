@@ -6,14 +6,26 @@
     <img src="{{ this.arrProductItem.imgPath }}" class="productImg">
   </div>
 
-  <div class="itemAttribute">{{this.arrProductItem.itemcode}}</div>
+
+  <div class="productInfo" fxLayout="rows wrap" fxLayoutAlign="start start">
+    <div class="productAttributes" fxLayout="columns wrap">
+      <div class="itemAttribute"><a class="txtSpacer">商品コード</a></div>
+      <div class="itemAttribute"><a class="txtSpacer">{{this.arrProductItem.itemcode}}</a></div>
+      
+    
+  </div>
+    <!-- <div class="itemAttribute">{{this.arrProductItem.itemcode}}</div>
   <div class="itemAttribute">{{this.arrProductItem.itemPrice  | currency : 'JPY': true}}</div>
   <div class="itemAttribute">{{this.arrProductItem.stockCount}}</div>
-  <div class="itemAttribute">{{this.arrProductItem.manu}}</div>
+  <div class="itemAttribute">{{this.arrProductItem.manu}}</div> -->
+
+  </div>
 
   <div class="productDesc">
     {{this.arrProductItem.desc}}
   </div>
+
+
 </div>
 
 <div>

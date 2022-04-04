@@ -48,5 +48,20 @@
 }
 
 .itemAttribute{
+  border-style: solid;
+  border-width: 1px!important;
+border-color: #41414B!important;
+  width: 150px!important;
+  
+}
+
+.productInfo{
+ /* border-style: dotted; */
   width: 100%!important;
+  margin-top: 10px!important;
+  margin-bottom: 10px!important;
+
+}
+.txtSpacer{
+  margin-right: 5px!important;
 }
