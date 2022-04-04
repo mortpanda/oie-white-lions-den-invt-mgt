@@ -5,7 +5,7 @@ export interface OrderList {
   orderInfo: {
     itemCode: string;
     itemCount: Number;
-    itemPrice: number;
+    itemPrice: Number;
   };
   destShop: string;
   eta: Date;
@@ -66,12 +66,6 @@ export const OrderItems = [
   orderStatus:"発送準備中",
   },
 
-// {
-//   orderID:1,
-// },
-// {
-//   orderID:2,
-// }
 
 ]
 

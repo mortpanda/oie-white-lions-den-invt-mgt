@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from 'app/shared/data-service/data.service';
-import { Subject, BehaviorSubject, Observable,ReplaySubject } from 'rxjs';
+import { DataService } from 'app/shared/data-service/data.service';
+import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { ViewEncapsulation } from '@angular/core';
-// import { GoogleMapsModule } from '@angular/google-maps'
+
+
 
 
 @Component({
@@ -12,20 +13,43 @@ import { ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class OrderDetailsComponent implements OnInit {
-  selectedMessage:any;
+  // google maps zoom level
+  zoom: number = 13;
+  selectedMessage: any;
   constructor(
-    public DataService:DataService,
+    public DataService: DataService,
   ) { }
 
   arrOrderDetails;
+  arrOrderItems = [];
+  arrayOfItems = [];
+  itemCountTotal = 0;
+  SubTotal = 0;
+  GrandTotal = 0;
+  lat;
+  lng;
   async ngOnInit() {
     this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
 
-    // console.log(this.selectedMessage)
+    this.arrOrderDetails = this.selectedMessage;
+    this.arrOrderItems = this.arrOrderDetails.orderInfo;
+    
+    for (let i in this.arrOrderItems) {
+      // console.log(this.arrOrderItems[i]);
+      this.arrayOfItems.push(this.arrOrderItems[i])
+      this.itemCountTotal = this.itemCountTotal + this.arrOrderItems[i].itemCount;
+      this.SubTotal = this.arrOrderItems[i].itemPrice * this.arrOrderItems[i].itemCount;
+      this.GrandTotal = this.GrandTotal + this.SubTotal;
+      // console.log(this.SubTotal)
+    }
 
-    this.arrOrderDetails=this.selectedMessage;
-    console.log(this.arrOrderDetails)
+    
+    this.lat=this.arrOrderDetails.currentLoc.lat;
+    this.lng=this.arrOrderDetails.currentLoc.long;
 
+    
+      
+    
   }
 
 }
