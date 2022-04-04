@@ -16,7 +16,7 @@ export const appItems = [
     name: "発注一覧",
     desc: "商品発注書一覧",
     img: "assets/img/app_icons/order_list_white.png",
-    link: "/inventory",
+    link: "/orderlist",
   },
   {
     name: "店舗情報",

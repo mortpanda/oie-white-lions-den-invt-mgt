@@ -42,12 +42,13 @@ import {LandingComponent} from 'app/landing/landing.component';
 import {FooterComponent} from 'app/shared/footer/footer.component';
 import { LoginComponent } from 'app/login/login.component';
 import { SamplePageComponent } from './sample-page/sample-page.component';
-//import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 import { StartComponent } from './start/start.component';
 import { InventoryListComponent } from './inventory-list/inventory-list.component';
 import { InventoryPopupComponent } from './inventory-popup/inventory-popup.component';
+import { OrderListComponent } from './order-list/order-list.component';
+import { OrderDetailsComponent } from './order-details/order-details.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,8 @@ import { InventoryPopupComponent } from './inventory-popup/inventory-popup.compo
     StartComponent,
     InventoryListComponent,
     InventoryPopupComponent,
+    OrderListComponent,
+    OrderDetailsComponent,
     //AuthNoticeComponent,
    
     
@@ -107,7 +110,8 @@ import { InventoryPopupComponent } from './inventory-popup/inventory-popup.compo
   ],
   providers: [
     OktaSDKAuthService,    
-    InventoryPopupComponent
+    InventoryPopupComponent,
+    OrderDetailsComponent
   ], 
 
   

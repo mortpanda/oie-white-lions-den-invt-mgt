@@ -7,17 +7,22 @@
   </div>
 
 
-  <div class="productInfo" fxLayout="rows wrap" fxLayoutAlign="start start">
+  <div class="productInfo" fxLayout="rows wrap">
     <div class="productAttributes" fxLayout="columns wrap">
       <div class="itemAttribute"><a class="txtSpacer">商品コード</a></div>
       <div class="itemAttribute"><a class="txtSpacer">{{this.arrProductItem.itemcode}}</a></div>
       
+      <div class="itemAttribute"><a class="txtSpacer">価格</a></div>
+      <div class="itemAttribute"><a class="txtSpacer">{{this.arrProductItem.itemPrice  | currency : 'JPY': true}}</a></div>
     
+      <div class="itemAttribute"><a class="txtSpacer">在庫数</a></div>
+      <div class="itemAttribute"><a class="txtSpacer">{{this.arrProductItem.stockCount}}</a></div>
+
+      <div class="itemAttribute"><a class="txtSpacer">メーカー</a></div>
+      <div class="itemAttribute"><a class="txtSpacer">{{this.arrProductItem.manu}}</a></div>
   </div>
-    <!-- <div class="itemAttribute">{{this.arrProductItem.itemcode}}</div>
-  <div class="itemAttribute">{{this.arrProductItem.itemPrice  | currency : 'JPY': true}}</div>
-  <div class="itemAttribute">{{this.arrProductItem.stockCount}}</div>
-  <div class="itemAttribute">{{this.arrProductItem.manu}}</div> -->
+  
+  
 
   </div>
 

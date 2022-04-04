@@ -6,6 +6,7 @@ import {LandingComponent} from 'app/landing/landing.component';
 import {SamplePageComponent} from 'app/sample-page/sample-page.component';
 import {StartComponent} from 'app/start/start.component';
 import {InventoryListComponent} from 'app/inventory-list/inventory-list.component';
+import {OrderListComponent} from 'app/order-list/order-list.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'home', component: LandingComponent },
   { path: 'start', component: StartComponent },
   { path: 'inventory', component: InventoryListComponent },
+  { path: 'orderlist', component: OrderListComponent },
   
   // { path: 'profilev2', component: Profilev2Component },
   // { path: 'store', component: SwagstoreComponent },
