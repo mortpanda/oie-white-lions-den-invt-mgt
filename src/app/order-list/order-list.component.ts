@@ -73,7 +73,7 @@ export class OrderListComponent implements OnInit {
   itemRow;
   openProduct(row): void {
     let dialogRef = this.dialog.open(OrderDetailsComponent, {
-      width: 'auto', height: 'auto',
+      width: '800px', height: 'auto',
       data: { row },
     });
 

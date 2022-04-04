@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {DataService} from 'app/shared/data-service/data.service';
 import { Subject, BehaviorSubject, Observable,ReplaySubject } from 'rxjs';
 import { ViewEncapsulation } from '@angular/core';
+// import { GoogleMapsModule } from '@angular/google-maps'
+
 
 @Component({
   selector: 'app-order-details',

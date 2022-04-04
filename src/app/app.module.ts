@@ -49,6 +49,7 @@ import { InventoryListComponent } from './inventory-list/inventory-list.componen
 import { InventoryPopupComponent } from './inventory-popup/inventory-popup.component';
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -104,6 +105,9 @@ import { OrderDetailsComponent } from './order-details/order-details.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatProgressBarModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyBhAogtW2JFeVgt1BNkwO_Ca8lFCCS73m4',libraries: ['places']
+    })
     
     
     

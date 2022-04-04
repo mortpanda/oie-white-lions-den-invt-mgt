@@ -1,6 +1,7 @@
 .btn{
   border-radius: 5px!important;
   border-color: #892100!important;
+  z-index: auto!important;
 }
 
 //#2D8C9E
@@ -113,27 +114,49 @@
 .navBanner{
   height:90px!important;
   width:auto!important;
+  z-index: auto!important;
 }
 
-.btnLion{
+.btn{
   background-color: #892100!important;
   color:#FFFFFF!important;
 }
 
-.btnLion:active{
+.btn:active{
   background-color: #FFFFFF!important;
   color: #892100!important;
 }
 
-.btnLion:hover{
+.btn:hover{
   background-color: #FFFFFF!important;
   color: #892100!important;
 }
 
-.btnLion:after :focus{
+.btn:after :focus{
   background-color: #FFFFFF!important;
-  color: #892100!important;
+  color:#892100!important;
 }
+
+
+// .btnLion{
+//   background-color: #892100!important;
+//   color:#FFFFFF!important;
+// }
+
+// .btnLion:active{
+//   background-color: #FFFFFF!important;
+//   color: #892100!important;
+// }
+
+// .btnLion:hover{
+//   background-color: #FFFFFF!important;
+//   color: #892100!important;
+// }
+
+// .btnLion:after :focus{
+//   background-color: #FFFFFF!important;
+//   color: #892100!important;
+
 
 // .navbar-burger{
 //   background-color: #892100!important; 
