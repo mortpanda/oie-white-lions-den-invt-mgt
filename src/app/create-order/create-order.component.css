@@ -66,7 +66,7 @@ button.active:focus {
 .orderFormHeadDiv {
   /* border-style: dotted!important; */
   width: 100% !important;
-  height: 50px !important;
+  height: 30px !important;
   background-color: #41414b !important;
   color: #ffffff !important;
   text-align: center !important;
@@ -75,7 +75,7 @@ button.active:focus {
   font-size: 18px !important;
   font-weight: 700 !important;
   border-radius: 5px !important;
-  padding-top: 10px !important;
+  padding-top: 5px !important;
 }
 
 .orderFormContainer {
@@ -103,7 +103,7 @@ button.active:focus {
 .DividerDIV {
   /* border-style: dotted !important; */
   background-color: #41414b !important;
-  height: 50px !important;
+  height: 30px !important;
   width: 100% !important;
   color: #ffffff !important;
   font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
@@ -111,7 +111,7 @@ button.active:focus {
   font-size: 16px !important;
   border-radius: 5px !important;
   text-align: center !important;
-  padding-top: 10px !important;
+  padding-top: 5px !important;
   margin-bottom: 10px !important;
 }
 
