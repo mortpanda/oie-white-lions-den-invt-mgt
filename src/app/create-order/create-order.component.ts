@@ -10,7 +10,7 @@ import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { StoreList, StoreItems } from 'app/shared/store-list/store-list';
-import { ProductStock, ProductItems } from 'app/shared/product-stock/product-stock';
+import { ProductStock, ProductItems, ItemCount } from 'app/shared/product-stock/product-stock';
 import { MatSelectModule, MatSelectChange } from '@angular/material/select';
 
 
@@ -26,8 +26,17 @@ export class CreateOrderComponent implements OnInit {
 
   StoreItems = StoreItems;
   ProductItems = ProductItems;
+  ItemCount = ItemCount;
 
   orderForm: FormGroup;
+  itemToOrder;
+
+  arrSelectedItem;
+  selectedItemName;
+  selectedItemCode;
+  selectedItemCat;
+  selectedItemPrice;
+  SelectedItemManu;
 
   constructor(
     public OktaGetTokenService: OktaGetTokenService,
@@ -39,22 +48,21 @@ export class CreateOrderComponent implements OnInit {
   ) {
     this.orderForm = this.fb.group({
       orderNo: this.randomOrderNumber,
-      store:"",
-      itemCode:"",
-      SelectedItemName:"",
-      SelectedItemCode:"",
-      SelectedItemCat:"",
-      selectedItemPrice:"",
+      store: "",
+      itemCode: "",
+      SelectedItemName: "",
+      SelectedItemCode: "",
+      SelectedItemCat: "",
+      selectedItemPrice: "",
+      SelectedItemManu: "",
     });
   }
-
-
-
 
   strUserSession: Boolean;
   ProductToOrder;
   randomOrderNumber;
   async ngOnInit() {
+    this.dialog.closeAll()
     this.randomOrderNumber = await Math.random().toFixed(5).replace(/\d\./, '');
 
     this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
@@ -77,28 +85,48 @@ export class CreateOrderComponent implements OnInit {
       case false:
         await window.location.replace(this.OktaConfigService.strPostLogoutURL);
       case true:
-        this.dialog.closeAll()
+        // this.dialog.closeAll()
         // User is logged in
         this.OktaGetTokenService.GetAccessToken()
         this.ProductToOrder = await this.selectedMessage;
+        // this.itemToOrder=this.ProductToOrder.itemcode;
+        this.itemToOrder = this.ProductToOrder.itemcode;
+        this.GetItemDetails(this.itemToOrder);
+
+
         break;
     }
-    console.log(this.ProductToOrder)
+    // console.log(this.ProductToOrder)
   }
 
 
-  arrSelectedItem;
-  selectedItemName;
-  selectedItemCode;
-  selectedItemCat;
-  selectedItemPrice;
+  GetItemDetails(strItemCode) {
+    for (let i = 0; i < this.ProductItems.length; i++) {
+      switch (this.ProductItems[i].itemcode) {
+        case strItemCode: {
+          console.log(this.ProductItems[i]);
+          this.selectedItemName = this.ProductItems[i].name;
+          this.selectedItemCode = this.ProductItems[i].itemcode;
+          this.selectedItemCat = this.ProductItems[i].category;
+          this.selectedItemPrice = this.ProductItems[i].itemPrice;
+          this.SelectedItemManu = this.ProductItems[i].manu;
+          break;
+        }
+        default:
+          break;
+      }
+    }
+
+  }
+
+
   async ProductChange(event: MatSelectChange) {
     // console.log(event.value)
     // console.log(this.ProductItems)
     for (let i = 0; i < this.ProductItems.length; i++) {
       switch (this.ProductItems[i].itemcode) {
         case (event.value): {
-          console.log(this.ProductItems[i].itemcode);
+          // console.log(this.ProductItems[i].itemcode);
           this.arrSelectedItem = this.ProductItems[i];
           break;
         }
@@ -107,11 +135,12 @@ export class CreateOrderComponent implements OnInit {
       }
 
     }
-    console.log(this.arrSelectedItem);
+    // console.log(this.arrSelectedItem);
     this.selectedItemName = this.arrSelectedItem.name;
     this.selectedItemCode = this.arrSelectedItem.itemcode;
     this.selectedItemCat = this.arrSelectedItem.category;
     this.selectedItemPrice = this.arrSelectedItem.itemPrice;
+    this.SelectedItemManu = this.arrSelectedItem.manu;
   }
 
 }
