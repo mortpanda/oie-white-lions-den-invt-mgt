@@ -50,6 +50,8 @@ import { InventoryPopupComponent } from './inventory-popup/inventory-popup.compo
 import { OrderListComponent } from './order-list/order-list.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AgmCoreModule } from '@agm/core';
+import { CreateOrderComponent } from './create-order/create-order.component';
+
 
 @NgModule({
   declarations: [
@@ -65,6 +67,7 @@ import { AgmCoreModule } from '@agm/core';
     InventoryPopupComponent,
     OrderListComponent,
     OrderDetailsComponent,
+    CreateOrderComponent,
     //AuthNoticeComponent,
    
     
@@ -115,7 +118,8 @@ import { AgmCoreModule } from '@agm/core';
   providers: [
     OktaSDKAuthService,    
     InventoryPopupComponent,
-    OrderDetailsComponent
+    OrderDetailsComponent,
+    MatDialogModule
   ], 
 
   

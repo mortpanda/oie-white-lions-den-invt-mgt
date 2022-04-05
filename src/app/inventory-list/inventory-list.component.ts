@@ -5,8 +5,6 @@ import { OktaSDKAuthService } from '../shared/okta/okta-auth.service';
 import { OktaAuth } from '@okta/okta-auth-js'
 import { ProductStock, ProductItems } from 'app/shared/product-stock/product-stock';
 import { OktaGetTokenService } from 'app/shared/okta/okta-get-token.service';
-
-
 import 'rxjs/add/operator/map';
 import { InventoryPopupComponent } from 'app/inventory-popup/inventory-popup.component';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
@@ -15,6 +13,7 @@ import {DataService} from 'app/shared/data-service/data.service';
 import { Subject, BehaviorSubject, Observable,ReplaySubject } from 'rxjs';
 
 import {MatTableDataSource} from '@angular/material/table';
+
 
 const ELEMENT_DATA = ProductItems;
 
@@ -41,7 +40,7 @@ export class InventoryListComponent implements OnInit {
     public InventoryPopupComponent: InventoryPopupComponent,
     public dialog: MatDialog,
     public DataService:DataService,
-
+    
   ) { }
 
 
@@ -93,5 +92,7 @@ itemRow;
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
+
+   
 
 }

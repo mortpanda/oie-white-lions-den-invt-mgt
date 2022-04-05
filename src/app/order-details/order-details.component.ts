@@ -14,7 +14,7 @@ import { ViewEncapsulation } from '@angular/core';
 })
 export class OrderDetailsComponent implements OnInit {
   // google maps zoom level
-  zoom: number = 13;
+  zoom: number = 5;
   selectedMessage: any;
   constructor(
     public DataService: DataService,
@@ -33,15 +33,17 @@ export class OrderDetailsComponent implements OnInit {
 
     this.arrOrderDetails = this.selectedMessage;
     this.arrOrderItems = this.arrOrderDetails.orderInfo;
-    
-    for (let i in this.arrOrderItems) {
-      // console.log(this.arrOrderItems[i]);
-      this.arrayOfItems.push(this.arrOrderItems[i])
-      this.itemCountTotal = this.itemCountTotal + this.arrOrderItems[i].itemCount;
-      this.SubTotal = this.arrOrderItems[i].itemPrice * this.arrOrderItems[i].itemCount;
-      this.GrandTotal = this.GrandTotal + this.SubTotal;
-      // console.log(this.SubTotal)
-    }
+    this.SubTotal = this.arrOrderDetails.itemPrice * this.arrOrderDetails.itemCount;
+    this.GrandTotal=this.SubTotal;
+
+    // for (let i in this.arrOrderItems) {
+    //   // console.log(this.arrOrderItems[i]);
+    //   this.arrayOfItems.push(this.arrOrderItems[i])
+    //   this.itemCountTotal = this.itemCountTotal + this.arrOrderItems[i].itemCount;
+    //   this.SubTotal = this.arrOrderItems[i].itemPrice * this.arrOrderItems[i].itemCount;
+    //   this.GrandTotal = this.GrandTotal + this.SubTotal;
+    //   // console.log(this.SubTotal)
+    // }
 
     
     this.lat=this.arrOrderDetails.currentLoc.lat;

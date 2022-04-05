@@ -1,0 +1,107 @@
+<div class="wrapper">
+  <!-- <div class="page-header section-dark" style="background-image: url('assets/img/okta_background_grey.png')">
+  <h1><img src="assets/img/okta_japan_white_medium.png" alt="" class="responsive"></h1>
+</div> -->
+  <div class="page-header section-dark" style="background:white">
+
+    <div class="mainContainer" fxLayout="row wrap" fxLayoutAlign="center start">
+
+      <div class="mainUserNameItem">
+        {{ OktaGetTokenService.strUserName }}
+      </div>
+
+      <div class="mainMenuItem" fxLayout="columns wrap" fxLayoutAlign="center center">
+
+        <div class="orderFormContainer">
+          <div class="orderFormHeadDiv">
+            発注書
+          </div>
+
+          <div class="OrderFormMain">
+
+            <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+
+              <div class="formInputs" fxLayout="columns wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
+                <div>
+                  <mat-form-field appearance="fill" [style.width.px]=300>
+                    <mat-label>注文番号</mat-label>
+                    <input matInput placeholder="注文番号" value="{{randomOrderNumber}}" formControlName="orderNo">
+                    <mat-icon matSuffix>shopping_cart</mat-icon>
+                  </mat-form-field>
+                </div>
+
+                <div>
+                  <mat-form-field appearance="fill" [style.width.px]=300>
+                    <mat-label>店舗</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let store of StoreItems" [value]="store.name">
+                        {{store.name}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-icon matSuffix>store</mat-icon>
+                  </mat-form-field>
+                </div>
+
+                <div>
+                  <mat-form-field appearance="fill" [style.width.px]=300>
+                    <mat-label>商品選択</mat-label>
+                    <mat-select (selectionChange)=ProductChange($event) disableOptionCentering>
+                      <mat-option *ngFor="let product of ProductItems" [value]="product.itemcode">
+                        {{product.itemcode}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-icon matSuffix>inventory</mat-icon>
+                  </mat-form-field>
+                </div>
+
+                <div class="DividerDIV">
+                  商品情報
+                </div>
+
+                <!-- <div>
+                  <mat-form-field appearance="fill" [style.width.px]=300>
+                    <mat-label>商品選択</mat-label>
+                    <mat-select (selectionChange)=ProductChange($event)>
+                      <mat-option *ngFor="let product of ProductItems" [value]="product.itemcode">
+                        {{product.itemcode}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-icon matSuffix>inventory</mat-icon>
+                  </mat-form-field>
+                </div> -->
+
+                <div class="productInfo" fxLayout="columns " fxLayoutAlign="center center" >
+                  <div class="productLeftSmall">商品名</div>
+                  <div class="productRightLong">{{selectedItemName}}</div>
+
+                  <div class="productLeftSmall">商品コード</div>
+                  <div class="productRightSmall">{{selectedItemCode}}</div>
+
+                  <div class="productLeftSmall">カテゴリ</div>
+                  <div class="productRightSmall">{{selectedItemCat}}</div>
+                </div>
+
+                
+
+                <!-- <div class="productInfo" fxLayout="columns wrap" fxLayoutAlign="center center" fxLayoutGap="5px"> 
+                  
+                 </div> -->
+
+              </div>
+            </form>
+          </div>
+        </div>
+
+
+
+        <!-- <div class="areaSpacer"></div>
+        <div class="okta_banner">
+          <img src="assets/img/okta-japan-logo-dark.png" class="okta_ciam">
+        </div> -->
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- routerLink="/mypage" -->

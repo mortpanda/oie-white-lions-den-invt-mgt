@@ -7,13 +7,13 @@
   </div>
   
 
-  <div class="productInfo" fxLayout="rows wrap">
-    <div class="productAttributes" fxLayout="columns wrap">
+  <div class="productInfo" fxLayout="rows wrap" >
+    <div class="productAttributes" fxLayout="columns wrap"  fxLayoutAlign="center center">
       <div class="itemAttribute"><a class="txtSpacer">商品コード</a></div>
       <div class="itemAttribute"><a class="txtSpacer">{{this.arrProductItem.itemcode}}</a></div>
       
       <div class="itemAttribute"><a class="txtSpacer">価格</a></div>
-      <div class="itemAttribute"><a class="txtSpacer">{{this.arrProductItem.itemPrice  | currency : 'JPY': true}}</a></div>
+      <div class="itemAttribute"><a class="txtSpacer">{{this.arrProductItem.itemPrice  | currency : 'JPY'}}</a></div>
     
       <div class="itemAttribute"><a class="txtSpacer">在庫数</a></div>
       <div class="itemAttribute"><a class="txtSpacer">{{this.arrProductItem.stockCount}}</a></div>
@@ -21,7 +21,9 @@
       <div class="itemAttribute"><a class="txtSpacer">メーカー</a></div>
       <div class="itemAttribute"><a class="txtSpacer">{{this.arrProductItem.manu}}</a></div>
 
-      
+      <div class="itemAttribute"><a class="txtSpacer">店舗</a></div>
+      <div class="itemAttribute"><a class="txtSpacer">{{this.arrProductItem.store}}</a></div>
+
   </div>
   
   
@@ -36,6 +38,8 @@
 </div>
 
 <div>
-  <a routerLink="/start" class="btnLion btn" id="login">メニュー</a>
-  <a class="btnLion btn" id="logout" (click)="Logout()">ログアウト</a>
+  <!-- <a routerLink="/start" class="btnLion btn" id="order">発注</a> -->
+  <a routerLink="/create-order" class="btnLion btn" id="order"  routerLinkActive="active">発注</a>
+  <!-- <a class="btnLion btn" id="logout" (click)="OrderItem()">発注</a> -->
+  <!-- <a class="btnLion btn" id="logout" (click)="Logout()">ログアウト</a> -->
 </div>

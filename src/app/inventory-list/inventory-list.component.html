@@ -10,7 +10,7 @@
       </div>
       <div class="mainUserNameItem">
 
-        <div class="pageHead">発注一覧</div>
+        <div class="pageHead">在庫一覧</div>
 
         <mat-form-field appearance="legacy" [style.width.px]=350>
           <mat-label>商品一覧のフィルター</mat-label>
@@ -55,7 +55,7 @@
 
           <ng-container matColumnDef="itemPrice">
             <th mat-header-cell *matHeaderCellDef>商品単価</th>
-            <td mat-cell *matCellDef="let element"> {{element.itemPrice | currency : 'JPY': true}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.itemPrice | currency : 'JPY'}} </td>
           </ng-container>
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

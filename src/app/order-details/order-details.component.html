@@ -30,19 +30,20 @@
     <div class="colHeadDiv">商品合計金額</div>
   </div>
 
-  <div class="colItems" fxLayout="rows wrap" fxLayoutAlign="start start" *ngFor="let items of arrayOfItems">
+  <!-- <div class="colItems" fxLayout="rows wrap" fxLayoutAlign="start start" *ngFor="let items of arrayOfItems"> -->
+    <div class="colItems" fxLayout="rows wrap" fxLayoutAlign="start start">
 
     <div class="itemDetailsDiv" fxLayout="columns wrap" fxLayoutAlign="start start">
-      {{ items.itemCode }}
+      {{ arrOrderDetails.itemCode }}
     </div>
     <div class="itemCountDiv">
-      {{ items.itemCount }}
+      {{ arrOrderDetails.itemCount }}
     </div>
     <div class="itemCountDiv">
-      {{ items.itemPrice | currency : 'JPY': true }}
+      {{ arrOrderDetails.itemPrice | currency : 'JPY' }}
     </div>
     <div class="itemCountDiv">
-      {{ SubTotal | currency : 'JPY': true }}
+      {{ SubTotal | currency : 'JPY' }}
     </div>
     <div class="spacerDiv"></div>
 
@@ -50,7 +51,7 @@
 
   <div class="itemTotal" fxLayout="columns wrap" fxLayoutAlign="start start">
     <div class="grandTotalHead">合計</div>
-    <div class="grandTotal">{{ GrandTotal | currency : 'JPY': true }}</div>
+    <div class="grandTotal">{{ GrandTotal | currency : 'JPY' }}</div>
   </div>
 </div>
 

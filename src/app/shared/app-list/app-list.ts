@@ -19,6 +19,12 @@ export const appItems = [
     link: "/orderlist",
   },
   {
+    name: "発注",
+    desc: "発注書を作成する",
+    img: "assets/img/app_icons/stores_list_white.png",
+    link: "/create-order",
+  },
+  {
     name: "店舗情報",
     desc: "店舗一覧",
     img: "assets/img/app_icons/stores_list_white.png",
