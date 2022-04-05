@@ -12,7 +12,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { StoreList, StoreItems } from 'app/shared/store-list/store-list';
 import { ProductStock, ProductItems } from 'app/shared/product-stock/product-stock';
 import { MatSelectModule, MatSelectChange } from '@angular/material/select';
-import { timeStamp } from 'console';
+
 
 @Component({
   selector: 'app-create-order',
@@ -38,7 +38,13 @@ export class CreateOrderComponent implements OnInit {
     public fb: FormBuilder,
   ) {
     this.orderForm = this.fb.group({
-      orderNo: this.randomOrderNumber
+      orderNo: this.randomOrderNumber,
+      store:"",
+      itemCode:"",
+      SelectedItemName:"",
+      SelectedItemCode:"",
+      SelectedItemCat:"",
+      selectedItemPrice:"",
     });
   }
 
@@ -50,10 +56,6 @@ export class CreateOrderComponent implements OnInit {
   randomOrderNumber;
   async ngOnInit() {
     this.randomOrderNumber = await Math.random().toFixed(5).replace(/\d\./, '');
-
-
-
-
 
     this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
     this.authService.token.getUserInfo()
@@ -89,6 +91,7 @@ export class CreateOrderComponent implements OnInit {
   selectedItemName;
   selectedItemCode;
   selectedItemCat;
+  selectedItemPrice;
   async ProductChange(event: MatSelectChange) {
     // console.log(event.value)
     // console.log(this.ProductItems)
@@ -108,6 +111,7 @@ export class CreateOrderComponent implements OnInit {
     this.selectedItemName = this.arrSelectedItem.name;
     this.selectedItemCode = this.arrSelectedItem.itemcode;
     this.selectedItemCat = this.arrSelectedItem.category;
+    this.selectedItemPrice = this.arrSelectedItem.itemPrice;
   }
 
 }

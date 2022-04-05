@@ -203,3 +203,21 @@ button.active:focus {
   margin-top: 10px !important;
   padding-left: 7px !important;
 }
+.productRightPrice {
+  border-style: solid !important;
+  border-width: 1px !important;
+  width: 200px!important;
+  height: 30px !important;
+  background-color: #ffffff !important;
+  color: #41414b !important;
+  border-radius: 5px !important;
+  padding-top: 5px !important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+  margin-left: 7px !important;
+  margin-top: 10px !important;
+  text-align: end!important;
+  padding-right: 5px!important;
+  padding-left: 7px !important;
+}
+
