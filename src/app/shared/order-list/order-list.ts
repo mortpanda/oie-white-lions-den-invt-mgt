@@ -22,7 +22,7 @@ export const OrderItems = [
     itemCount: 10,
     itemPrice: 500000,
     destShop: "軽井沢店",
-    eta: 1654279072,
+    eta: 1649238348,
     currentLoc: {
       lat: 55.3925554,
       long: 9.938649,
@@ -36,7 +36,7 @@ export const OrderItems = [
     itemCount: 10,
     itemPrice: 500000,
     destShop: "立科店",
-    eta: 1654279072,
+    eta: 1649238348,
     currentLoc: {
       lat: 51.3085988,
       long: 7.2654144,
@@ -50,7 +50,7 @@ export const OrderItems = [
     itemCount: 10,
     itemPrice: 500000,
     destShop: "佐久店",
-    eta: 1654279072,
+    eta: 1649238348,
     currentLoc: {
       lat: 30.5380077,
       long: 32.3173256,

@@ -8,10 +8,13 @@ import { OktaAuth } from '@okta/okta-auth-js'
 import { DataService } from 'app/shared/data-service/data.service';
 import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validator, Validators, ReactiveFormsModule } from "@angular/forms";
 import { StoreList, StoreItems } from 'app/shared/store-list/store-list';
-import { ProductStock, ProductItems, ItemCount } from 'app/shared/product-stock/product-stock';
+import { ProductStock, ProductItems } from 'app/shared/product-stock/product-stock';
 import { MatSelectModule, MatSelectChange } from '@angular/material/select';
+
+import { OrderQuantity, ItemCount } from 'app/shared/order-quantity/order-quantity';
+import { OrderList, OrderItems } from 'app/shared/order-list/order-list';
 
 
 @Component({
@@ -37,6 +40,21 @@ export class CreateOrderComponent implements OnInit {
   selectedItemCat;
   selectedItemPrice;
   SelectedItemManu;
+  strUserSession: Boolean;
+  ProductToOrder;
+  randomOrderNumber;
+
+  ItemPrice;
+  GrandTotal;
+  epochDate;
+
+  OrderItems = OrderItems;
+
+  factoryLocation = [{
+    lat: 55.3925554,
+    long: 9.938649,
+  }
+  ]
 
   constructor(
     public OktaGetTokenService: OktaGetTokenService,
@@ -46,23 +64,74 @@ export class CreateOrderComponent implements OnInit {
     public dialog: MatDialog,
     public fb: FormBuilder,
   ) {
+
+    // this.orderNo=new FormControl('',[Validators.required]);
     this.orderForm = this.fb.group({
       orderNo: this.randomOrderNumber,
-      store: "",
-      itemCode: "",
-      SelectedItemName: "",
-      SelectedItemCode: "",
-      SelectedItemCat: "",
-      selectedItemPrice: "",
-      SelectedItemManu: "",
+      store: '',
+      itemCode: '',
     });
+
+
   }
 
-  strUserSession: Boolean;
-  ProductToOrder;
-  randomOrderNumber;
+  arrNewOrder;
+  newOrderNumber: Number;
+  newOrderItemCode;
+  newOrderDestShop;
+  onSubmit() {
+
+
+    this.newOrderNumber = Number(this.orderForm.get("orderNo").value);
+    this.newOrderItemCode = this.orderForm.get("itemCode").value;
+    this.newOrderDestShop = this.orderForm.get("store").value;
+
+    // console.log(this.orderForm.get("store").value)
+    // console.log(this.selectedItemName);
+    // console.log(this.SelectedItemManu);
+    // console.log(this.selectedItemCat);
+    // console.log(this.selectedItemCode);
+    // console.log(this.selectedItemPrice);
+
+    localStorage.removeItem('orderList');
+
+    this.AddMonths(3)
+
+    this.arrNewOrder = this.OrderItems;
+    this.arrNewOrder.push({
+      orderID: this.newOrderNumber,
+      manu: this.SelectedItemManu,
+      itemCode: this.newOrderItemCode,
+      itemCount: this.orderStockCount,
+      itemPrice: this.selectedItemPrice,
+      destShop: this.newOrderDestShop,
+      eta: this.epochDate,
+      currentLoc: this.factoryLocation,
+      orderStatus:'発送準備中',
+    })
+    console.log(this.arrNewOrder);
+    
+    localStorage.setItem('orderList',JSON.stringify(this.arrNewOrder));
+    
+
+
+  }
+
+  
+  AddMonths(months) {
+    const date = new Date();
+    date.setMonth(date.getMonth() + months);
+    this.epochDate = date.getTime();
+    console.log(this.epochDate)
+    // return date
+  }
+
+
   async ngOnInit() {
     this.dialog.closeAll()
+
+
+
     this.randomOrderNumber = await Math.random().toFixed(5).replace(/\d\./, '');
 
     this.DataService.currentMessage.subscribe(message => (this.selectedMessage = message));
@@ -135,12 +204,21 @@ export class CreateOrderComponent implements OnInit {
       }
 
     }
-    // console.log(this.arrSelectedItem);
+    console.log(this.arrSelectedItem);
     this.selectedItemName = this.arrSelectedItem.name;
     this.selectedItemCode = this.arrSelectedItem.itemcode;
     this.selectedItemCat = this.arrSelectedItem.category;
     this.selectedItemPrice = this.arrSelectedItem.itemPrice;
     this.SelectedItemManu = this.arrSelectedItem.manu;
   }
+
+  orderStockCount;
+  async itemCountChange(event: MatSelectChange) {
+    this.orderStockCount = event.value;
+    console.log(this.orderStockCount);
+    this.GrandTotal = this.selectedItemPrice * this.orderStockCount;
+  }
+
+
 
 }

@@ -23,9 +23,10 @@
 
               <div class="formInputs" fxLayout="columns wrap" fxLayoutAlign="center center" fxLayoutGap="10px">
                 <div>
-                  <mat-form-field appearance="fill" [style.width.px]=300>
+                  <mat-form-field appearance="fill" [style.width.px]=300 >
                     <mat-label>注文番号</mat-label>
-                    <input matInput placeholder="注文番号" value="{{randomOrderNumber}}" formControlName="orderNo">
+                    <!-- <input matInput placeholder="注文番号" value="{{randomOrderNumber}}" id="orderNo" formControlName="orderNo" type="text"> -->
+                    <input matInput type="text" formControlName="orderNo"  id="orderNo" [(ngModel)]="randomOrderNumber">
                     <mat-icon matSuffix>shopping_cart</mat-icon>
                   </mat-form-field>
                 </div>
@@ -33,8 +34,8 @@
                 <div>
                   <mat-form-field appearance="fill" [style.width.px]=300>
                     <mat-label>店舗</mat-label>
-                    <mat-select>
-                      <mat-option *ngFor="let store of StoreItems" [value]="store.name" name="store">
+                    <mat-select  formControlName="store">
+                      <mat-option *ngFor="let store of StoreItems" [value]="store.name" name="store" id="store" >
                         {{store.name}}
                       </mat-option>
                     </mat-select>
@@ -45,13 +46,25 @@
                 <div>
                   <mat-form-field appearance="fill" [style.width.px]=300>
                     <mat-label>商品選択</mat-label>
-                    <mat-select (selectionChange)=ProductChange($event) disableOptionCentering [(value)]="itemToOrder">
-                      <!-- <mat-option *ngFor="let product of ProductItems" name="itemCode"> -->
-                      <mat-option *ngFor="let product of ProductItems" [value]="product.itemcode"name="itemCode">
+                    <mat-select (selectionChange)=ProductChange($event) disableOptionCentering [(ngModel)]="itemToOrder" formControlName="itemCode">
+                      <mat-option *ngFor="let product of ProductItems" [value]="product.itemcode" name="itemCode" >
                         {{product.itemcode}}
                       </mat-option>
                     </mat-select>
                     <mat-icon matSuffix>inventory</mat-icon>
+                  </mat-form-field>
+                </div>
+
+                <div>
+                  <mat-form-field appearance="fill" [style.width.px]=300>
+                    <mat-label>個数</mat-label>
+                    <mat-select (selectionChange)=itemCountChange($event) disableOptionCentering>
+                      
+                      <mat-option *ngFor="let stock of ItemCount" [value]="stock.stockCount" name="itemCount">
+                        {{stock.stockCount}}
+                      </mat-option>
+                    </mat-select>
+                    <mat-icon matSuffix>filter_1</mat-icon>
                   </mat-form-field>
                 </div>
 
@@ -59,56 +72,42 @@
                   商品情報
                 </div>
 
-                <!-- <div>
-                  <mat-form-field appearance="fill" [style.width.px]=300>
-                    <mat-label>商品選択</mat-label>
-                    <mat-select (selectionChange)=ProductChange($event)>
-                      <mat-option *ngFor="let product of ProductItems" [value]="product.itemcode">
-                        {{product.itemcode}}
-                      </mat-option>
-                    </mat-select>
-                    <mat-icon matSuffix>inventory</mat-icon>
-                  </mat-form-field>
-                </div> -->
-
-                <div class="productInfo" fxLayout="columns" fxLayoutAlign="center center" >
+                <div class="productInfo" fxLayout="columns" fxLayoutAlign="center center">
                   <div class="productLeftSmall">商品名</div>
-                  <div class="productRightLong" name="SelectedItemName">{{selectedItemName}}</div>
+                  <div class="productName" name="SelectedItemName">{{selectedItemName}}</div>              
+                </div>
 
-                  <div class="productLeftSmall">商品コード</div>
-                  <div class="productRightSmall" name="SelectedItemCode">{{selectedItemCode}}</div>
+                <div class="productInfo" fxLayout="columns" fxLayoutAlign="center center">
+                  <div class="productLeftSmall">メーカー</div>
+                  <div class="productName" name="SelectedItemManu">{{SelectedItemManu}}</div>
+                  
+                </div>
 
+                <div class="productInfo" fxLayout="columns wrap" fxLayoutAlign="center">
                   <div class="productLeftSmall">カテゴリ</div>
                   <div class="productRightSmall" name="SelectedItemCat">{{selectedItemCat}}</div>
-                </div>
 
-                <div class="productInfo" fxLayout="columns" fxLayoutAlign="center center" >
-                 
-                  <div class="productLeftSmall">メーカー</div>
-                  <div class="productRightSmall" name="SelectedItemManu">{{SelectedItemManu}}</div>
+                  <div class="productLeftSmall">商品コード</div>
+                  <div class="productRightSmall" name="selectedItemCode">{{selectedItemCode}}</div>
+                  
 
                   <div class="productLeftSmall">価格</div>
-                  <div class="productRightPrice" name="selectedItemPrice">{{selectedItemPrice  | currency : 'JPY'}}</div>
+                  <div class="productRightPrice" name="selectedItemPrice">{{selectedItemPrice | currency : 'JPY'}}</div>
 
-                  <div>
-                    <mat-form-field appearance="fill" [style.width.px]=300>
-                      <mat-label>商品選択</mat-label>
-                      <mat-select (selectionChange)=ProductChange($event) disableOptionCentering [(value)]="itemToOrder">
-                        <!-- <mat-option *ngFor="let product of ProductItems" name="itemCode"> -->
-                        <mat-option *ngFor="let stock of ItemCount" [value]="stock.stockCount">
-                          {{stock.stockCount}}
-                        </mat-option>
-                      </mat-select>
-                      <mat-icon matSuffix>inventory</mat-icon>
-                    </mat-form-field>
-                  </div>
                 </div>
 
-                
+                <div class="DividerDIV">
+                  合計価格
+                </div>
+                <div class="GrandTotalLeft">合計</div>
+                <div class="GrandTotalRight">{{GrandTotal  | currency : 'JPY'}}</div>
 
-                <!-- <div class="productInfo" fxLayout="columns wrap" fxLayoutAlign="center center" fxLayoutGap="5px"> 
-                  
-                 </div> -->
+                <div class="ButtonDiv">
+                  <!-- <a class="btn orderBtn" id="logout" (click)="PlaceOrder()">発注</a> -->
+                  <!-- <a class="btn orderBtn" id="logout"  type="submit">発注</a> -->
+                  <button class="btn orderBtn" id="submit"  type="submit">発注</button>
+                  <!-- type="submit" -->
+                </div>
 
               </div>
             </form>

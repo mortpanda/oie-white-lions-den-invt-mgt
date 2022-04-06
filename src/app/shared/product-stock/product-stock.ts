@@ -271,11 +271,3 @@ export const ProductItems = [
 ]
 
 
-export const ItemCount = [
-  {
-    stockCount: 5,
-  },
-  {
-    stockCount: 10,
-  },
-]

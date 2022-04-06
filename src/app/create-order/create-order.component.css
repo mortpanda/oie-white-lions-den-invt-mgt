@@ -1,13 +1,22 @@
 .mainContainer {
   /* border-style: dotted !important; */
   width: 95% !important;
-  height: 500px !important;
-  margin-top: 40px !important;
+  height: 550px !important;
+  margin-top: 30px !important;
   font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
     "Cantarell", "Helvetica Neue", sans-serif !important;
   color: #41414b !important;
+  overflow-y: auto;
 }
-
+/* Hide the scrollbar byu still allow scroll : Chrome, Safari and Opera */
+.mainContainer::-webkit-scrollbar {
+  display: none;
+}
+/* Hide the scrollbar byu still allow scroll :  IE, Edge and Firefox */
+.mainContainer {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
 .mainUserNameItem {
   /* border-style: dotted !important; */
   width: 50% !important;
@@ -83,7 +92,8 @@ button.active:focus {
 }
 .OrderFormMain {
   margin-top: 10px !important;
-  
+  height:auto!important;
+  /* overflow-y: auto; */
 }
 
 .mat-form-field-ripple {
@@ -113,6 +123,7 @@ button.active:focus {
   text-align: center !important;
   padding-top: 5px !important;
   margin-bottom: 10px !important;
+  margin-top: 10px !important;
 }
 
 .productInfo {
@@ -138,6 +149,21 @@ button.active:focus {
     "Cantarell", "Helvetica Neue", sans-serif !important;
     padding-left: 7px !important;
 }
+.productRightSmall {
+  border-style: solid !important;
+  border-width: 1px !important;
+  width: 150px!important;
+  height: 30px !important;
+  background-color: #ffffff !important;
+  color: #41414b !important;
+  border-radius: 5px !important;
+  padding-top: 5px !important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+  margin-left: 7px !important;
+  margin-top: 10px !important;
+  padding-left: 7px !important;
+}
 
 .productRightLong {
   border-style: solid !important;
@@ -155,21 +181,7 @@ button.active:focus {
   padding-left: 7px !important;
 }
 
-.productRightSmall {
-  border-style: solid !important;
-  border-width: 1px !important;
-  width: 150px!important;
-  height: 30px !important;
-  background-color: #ffffff !important;
-  color: #41414b !important;
-  border-radius: 5px !important;
-  padding-top: 5px !important;
-  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
-    "Cantarell", "Helvetica Neue", sans-serif !important;
-  margin-left: 7px !important;
-  margin-top: 10px !important;
-  padding-left: 7px !important;
-}
+
 
 .productLeft {
   /* border-style: dotted !important; */
@@ -221,3 +233,89 @@ button.active:focus {
   padding-left: 7px !important;
 }
 
+.ButtonDiv{
+  width: 100%!important;
+  padding-left:  50px!important;
+  text-align: left!important;
+}
+
+.GrandTotalLeft{
+  /* border-style: solid!important; */
+  /* border-style: solid!important;
+  border-width: 1px!important;
+  border-radius: 5px!important; */
+  width: 30%!important;
+  text-align: center!important;
+  font-size: 24px!important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+}
+
+.GrandTotalRight{
+  /* border-style: solid!important; */
+  width: 50%!important;
+  min-height: 30px!important;
+  font-size: 24px!important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+    text-align: right!important;
+    padding-right:20px!important
+}
+
+
+
+.productLeftSmall {
+  /* border-style: dotted !important; */
+  margin-top: 10px !important;
+  background-color: #41414b !important;
+  color: #ffffff !important;
+  height: 30px !important;
+  width: 100px !important;
+  border-radius: 5px !important;
+  padding-top: 5px !important;
+  margin-left: 7px !important;
+  color: #ffffff !important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+    padding-left: 7px !important;
+}
+.productRightSmall {
+  border-style: solid !important;
+  border-width: 1px !important;
+  width: 150px!important;
+  height: 30px !important;
+  background-color: #ffffff !important;
+  color: #41414b !important;
+  border-radius: 5px !important;
+  padding-top: 5px !important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+  margin-left: 7px !important;
+  margin-top: 10px !important;
+  padding-left: 7px !important;
+}
+
+.productName {
+  border-style: solid !important;
+  border-width: 1px !important;
+  width: 60%!important;
+  height: 30px !important;
+  background-color: #ffffff !important;
+  color: #41414b !important;
+  border-radius: 5px !important;
+  padding-top: 5px !important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+  margin-left: 7px !important;
+  margin-top: 10px !important;
+  padding-left: 7px !important;
+}
+
+.ButtonDiv{
+  margin-top: 20px!important;
+}
+
+.orderBtn{
+  /* font-size: 24px!important; */
+  width: 300px!important;
+}

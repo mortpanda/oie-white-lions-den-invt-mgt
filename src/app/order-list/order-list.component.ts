@@ -11,7 +11,7 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dial
 
 import { DataService } from 'app/shared/data-service/data.service';
 import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
-import {OrderDetailsComponent} from 'app/order-details/order-details.component';
+import { OrderDetailsComponent } from 'app/order-details/order-details.component';
 // const ELEMENT_DATA = OrderItems;
 
 
@@ -23,7 +23,7 @@ import {OrderDetailsComponent} from 'app/order-details/order-details.component';
 })
 export class OrderListComponent implements OnInit {
   private authService = new OktaAuth(this.OktaSDKAuthService.config);
-  displayedColumns: string[] = ['orderID','orderStatus','manu','destShop','eta'];
+  displayedColumns: string[] = ['orderID', 'orderStatus', 'manu', 'destShop', 'eta'];
   OrderItems = OrderItems;
 
   constructor(
@@ -31,17 +31,19 @@ export class OrderListComponent implements OnInit {
     public OktaConfigService: OktaConfigService,
     private OktaSDKAuthService: OktaSDKAuthService,
 
-    public DataService:DataService,
-    public OrderDetailsComponent:OrderDetailsComponent,
+    public DataService: DataService,
+    public OrderDetailsComponent: OrderDetailsComponent,
     public dialog: MatDialog,
   ) { }
 
-   
-  // displayedColumns: string[] = ['orderID', 'manu', 'orderTotal','manu',  'destShop','eta','orderStatus'];
 
+  // displayedColumns: string[] = ['orderID', 'manu', 'orderTotal','manu',  'destShop','eta','orderStatus'];
+  OrderListDiskItem;
 
   strUserSession: Boolean;
   async ngOnInit() {
+    // localStorage.setItem('orderList1','');
+
     this.authService.token.getUserInfo()
       .then(function (user) {
         console.log(user)
@@ -63,10 +65,30 @@ export class OrderListComponent implements OnInit {
       case true:
         // User is logged in
         await this.OktaGetTokenService.GetAccessToken()
-        await localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
-        await this.LoadOrderTable();
-        
-        break;
+
+        this.OrderListDiskItem = await localStorage.getItem('orderList');
+        let arrLength
+        if (this.OrderListDiskItem.length > 1) {
+          arrLength = true;
+        }
+        else {
+          arrLength = false;
+        }
+        switch (arrLength) {
+          case false: {
+            await localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
+            break;
+          }
+          default:
+            
+            await this.LoadOrderTable();
+            break;
+        }
+
+      // await localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
+      // await this.LoadOrderTable();
+
+
     }
   }
 
