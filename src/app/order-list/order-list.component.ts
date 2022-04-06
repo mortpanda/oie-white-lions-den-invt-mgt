@@ -25,6 +25,8 @@ export class OrderListComponent implements OnInit {
   private authService = new OktaAuth(this.OktaSDKAuthService.config);
   displayedColumns: string[] = ['orderID', 'orderStatus', 'manu', 'destShop', 'eta'];
   OrderItems = OrderItems;
+  // tableDataSourceFromDisk;
+  tableDataSource;
 
   constructor(
     public OktaGetTokenService: OktaGetTokenService,
@@ -36,15 +38,13 @@ export class OrderListComponent implements OnInit {
     public dialog: MatDialog,
   ) { }
 
-
-  // displayedColumns: string[] = ['orderID', 'manu', 'orderTotal','manu',  'destShop','eta','orderStatus'];
-  OrderListDiskItem;
+  // OrderListDiskItem;
 
   strUserSession: Boolean;
   async ngOnInit() {
     // localStorage.setItem('orderList1','');
 
-    this.authService.token.getUserInfo()
+    await this.authService.token.getUserInfo()
       .then(function (user) {
         console.log(user)
       })
@@ -61,42 +61,28 @@ export class OrderListComponent implements OnInit {
       });
     switch (this.strUserSession == true) {
       case false:
-      // await window.location.replace(this.OktaConfigService.strPostLogoutURL);
+        await window.location.replace(this.OktaConfigService.strPostLogoutURL);
       case true:
         // User is logged in
-        await this.OktaGetTokenService.GetAccessToken()
+        // if (localStorage.getItem('orderList') == null) {
+        //   // this.tableDataSourceFromDisk = JSON.parse(localStorage.getItem('orderList'));
+        //   // this.tableDataSource = this.tableDataSourceFromDisk;
 
-        // this.OrderListDiskItem = await localStorage.getItem('orderList');
-        if (localStorage.getItem('orderList') !== null) {
-          await this.LoadOrderTable();
-        }
-        else{
-          
-          await localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
-        }
-        // let arrLength
-        // if (this.OrderListDiskItem.length > 1) {
-        //   arrLength = true;
+        //   localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
         // }
         // else {
-        //   arrLength = false;
+
+        //   //  localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
+          this.tableDataSource = JSON.parse(localStorage.getItem('orderList'));
+        //   // this.tableDataSource = this.tableDataSourceFromDisk;
         // }
-        // switch (arrLength) {
-        //   case false: {
-        //     await localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
-        //     break;
-        //   }
-        //   default:
-
-        //     await this.LoadOrderTable();
-        //     break;
-        // }
-
-      // await localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
-      // await this.LoadOrderTable();
-
+        await this.OktaGetTokenService.GetAccessToken()
 
     }
+  }
+
+  async delay(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
   }
 
   itemRow;
@@ -107,20 +93,17 @@ export class OrderListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => { row = result; });
-    // console.log('Row clicked: ', row);
     this.itemRow = row;
-    // console.log(this.itemRow);
     this.DataService.changeMessage(this.itemRow);
   }
 
-  tableDataSourceFromDisk;
-  tableDataSource;
-  async LoadOrderTable() {
-    // this.tableDataSource = new MatTableDataSource(localStorage.getItem('orderList'));
-    this.tableDataSourceFromDisk = JSON.parse(localStorage.getItem('orderList'));
-    // ELEMENT_DATA = this.tableDataSource;
-    this.tableDataSource = this.tableDataSourceFromDisk;
 
-  }
+  // async LoadOrderTable() {
+  //   // this.tableDataSource = new MatTableDataSource(localStorage.getItem('orderList'));
+  //   // this.tableDataSourceFromDisk = await JSON.parse(localStorage.getItem('orderList'));
+  //   // // ELEMENT_DATA = this.tableDataSource;
+  //   // this.tableDataSource = await this.tableDataSourceFromDisk;
+
+  // }
 
 }

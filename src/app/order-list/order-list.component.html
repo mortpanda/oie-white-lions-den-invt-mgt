@@ -35,22 +35,27 @@
 
           <ng-container matColumnDef="eta">
             <th mat-header-cell *matHeaderCellDef>納品予定日</th>
+            <!-- <td mat-cell *matCellDef="let element"> {{element.eta * 1000 | date:jpn}} </td> -->
             <td mat-cell *matCellDef="let element"> {{element.eta * 1000 | date:jpn}} </td>
           </ng-container>
 
 
           <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openProduct(row)" ></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="openProduct(row)"></tr>
         </table>
 
-      </div>
-
-
-      <div class="okta_banner">
-        <img src="assets/img/okta-japan-logo-dark.png" class="okta_ciam">
+      
+      <div class="btnDefault">
+        <a class="btn" id="logout" (click)="SetDefault()">初期設定に戻す</a>
       </div>
     </div>
+
+
+    <div class="okta_banner">
+      <img src="assets/img/okta-japan-logo-dark.png" class="okta_ciam">
+    </div>
   </div>
+</div>
 </div>
 
 <!-- routerLink="/mypage" -->

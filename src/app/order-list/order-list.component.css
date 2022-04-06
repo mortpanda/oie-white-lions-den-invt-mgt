@@ -127,3 +127,9 @@ table {
   font-size: 24px!important;
   font-weight: 800!important;
 }
+
+.btnDefault{
+  /* border-style: dotted; */
+  width: 100%!important;
+  margin-top: 20px!important;
+}

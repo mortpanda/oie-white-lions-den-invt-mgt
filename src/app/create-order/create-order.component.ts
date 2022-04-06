@@ -17,6 +17,7 @@ import { OrderQuantity, ItemCount } from 'app/shared/order-quantity/order-quanti
 import { OrderList, OrderItems } from 'app/shared/order-list/order-list';
 import { RouterModule, Routes } from '@angular/router';
 
+
 @Component({
   selector: 'app-create-order',
   templateUrl: './create-order.component.html',
@@ -80,6 +81,7 @@ export class CreateOrderComponent implements OnInit {
   newOrderNumber: Number;
   newOrderItemCode;
   newOrderDestShop;
+  tableDataSourceFromDisk;
   onSubmit() {
 
 
@@ -98,7 +100,22 @@ export class CreateOrderComponent implements OnInit {
 
     this.AddMonths(3)
 
-    this.arrNewOrder = this.OrderItems;
+    if (localStorage.getItem('orderList') == null) {
+      // this.tableDataSourceFromDisk = JSON.parse(localStorage.getItem('orderList'));
+      // this.tableDataSource = this.tableDataSourceFromDisk;
+      
+      //localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
+      this.arrNewOrder = this.OrderItems;
+    }
+    else {
+      
+      //  localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
+      this.tableDataSourceFromDisk = JSON.parse(localStorage.getItem('orderList'));
+      this.arrNewOrder  = this.tableDataSourceFromDisk;
+      // this.tableDataSource = this.tableDataSourceFromDisk;
+    }
+    
+    // this.arrNewOrder = this.OrderItems;
     this.arrNewOrder.push({
       orderID: this.newOrderNumber,
       manu: this.SelectedItemManu,
@@ -111,6 +128,8 @@ export class CreateOrderComponent implements OnInit {
       orderStatus:'発送準備中',
     })
     console.log(this.arrNewOrder);
+
+    
     
     localStorage.setItem('orderList',JSON.stringify(this.arrNewOrder));
     this.router.navigate(['/orderlist']);
@@ -122,16 +141,14 @@ export class CreateOrderComponent implements OnInit {
   AddMonths(months) {
     const date = new Date();
     date.setMonth(date.getMonth() + months);
-    this.epochDate = date.getTime();
-    console.log(this.epochDate)
+    this.epochDate = date.getTime() /1000;
+    console.log(this.epochDate )
     // return date
   }
 
 
   async ngOnInit() {
     this.dialog.closeAll()
-
-
 
     this.randomOrderNumber = await Math.random().toFixed(5).replace(/\d\./, '');
 
