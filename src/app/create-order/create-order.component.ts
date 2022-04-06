@@ -15,7 +15,7 @@ import { MatSelectModule, MatSelectChange } from '@angular/material/select';
 
 import { OrderQuantity, ItemCount } from 'app/shared/order-quantity/order-quantity';
 import { OrderList, OrderItems } from 'app/shared/order-list/order-list';
-
+import { RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-create-order',
@@ -50,11 +50,11 @@ export class CreateOrderComponent implements OnInit {
 
   OrderItems = OrderItems;
 
-  factoryLocation = [{
+  factoryLocation = {
     lat: 55.3925554,
     long: 9.938649,
-  }
-  ]
+  };
+  
 
   constructor(
     public OktaGetTokenService: OktaGetTokenService,
@@ -63,6 +63,7 @@ export class CreateOrderComponent implements OnInit {
     public DataService: DataService,
     public dialog: MatDialog,
     public fb: FormBuilder,
+    private router: Router,
   ) {
 
     // this.orderNo=new FormControl('',[Validators.required]);
@@ -112,7 +113,7 @@ export class CreateOrderComponent implements OnInit {
     console.log(this.arrNewOrder);
     
     localStorage.setItem('orderList',JSON.stringify(this.arrNewOrder));
-    
+    this.router.navigate(['/orderlist']);
 
 
   }

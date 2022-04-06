@@ -66,24 +66,31 @@ export class OrderListComponent implements OnInit {
         // User is logged in
         await this.OktaGetTokenService.GetAccessToken()
 
-        this.OrderListDiskItem = await localStorage.getItem('orderList');
-        let arrLength
-        if (this.OrderListDiskItem.length > 1) {
-          arrLength = true;
+        // this.OrderListDiskItem = await localStorage.getItem('orderList');
+        if (localStorage.getItem('orderList') !== null) {
+          await this.LoadOrderTable();
         }
-        else {
-          arrLength = false;
+        else{
+          
+          await localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
         }
-        switch (arrLength) {
-          case false: {
-            await localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
-            break;
-          }
-          default:
-            
-            await this.LoadOrderTable();
-            break;
-        }
+        // let arrLength
+        // if (this.OrderListDiskItem.length > 1) {
+        //   arrLength = true;
+        // }
+        // else {
+        //   arrLength = false;
+        // }
+        // switch (arrLength) {
+        //   case false: {
+        //     await localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
+        //     break;
+        //   }
+        //   default:
+
+        //     await this.LoadOrderTable();
+        //     break;
+        // }
 
       // await localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
       // await this.LoadOrderTable();
@@ -109,7 +116,6 @@ export class OrderListComponent implements OnInit {
   tableDataSourceFromDisk;
   tableDataSource;
   async LoadOrderTable() {
-
     // this.tableDataSource = new MatTableDataSource(localStorage.getItem('orderList'));
     this.tableDataSourceFromDisk = JSON.parse(localStorage.getItem('orderList'));
     // ELEMENT_DATA = this.tableDataSource;
