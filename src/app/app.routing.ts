@@ -8,6 +8,7 @@ import {StartComponent} from 'app/start/start.component';
 import {InventoryListComponent} from 'app/inventory-list/inventory-list.component';
 import {OrderListComponent} from 'app/order-list/order-list.component';
 import {CreateOrderComponent} from 'app/create-order/create-order.component';
+import {StoreStockComponent} from 'app/store-stock/store-stock.component';
 
 
 const routes: Routes = [
@@ -17,14 +18,8 @@ const routes: Routes = [
   { path: 'inventory', component: InventoryListComponent },
   { path: 'orderlist', component: OrderListComponent },
   { path: 'create-order', component: CreateOrderComponent },
+  { path: 'stores', component: StoreStockComponent },
   
-  // { path: 'profilev2', component: Profilev2Component },
-  // { path: 'store', component: SwagstoreComponent },
-  // { path: 'checkout', component: CheckoutComponent },
-  // { path: 'save', component: SaveModalComponent },
-  //{ path: 'signup',           component: SignupComponent },
-  //{ path: 'landing',          component: LandingComponent },
-  // { path: 'nucleoicons',      component: NucleoiconsComponent }
 ];
 
 @NgModule({

@@ -24,7 +24,7 @@ export const ProductItems = [
     stockCount: 10,
     designer: "Hans J. Wegner",
     imgPath: "assets/img/product_img/ch24.png",
-    store: ["軽井沢", "小諸", "松本", "長野"],
+    store: "軽井沢店",
   },
 
   {
@@ -37,7 +37,7 @@ export const ProductItems = [
     stockCount: 5,
     designer: "Hans J. Wegner",
     imgPath: "assets/img/product_img/ch24p.png",
-    store: ["軽井沢", "小諸", "茅野", "立科"],
+    store: "小諸店",
   },
   {
     name: "Chair",
@@ -49,7 +49,7 @@ export const ProductItems = [
     stockCount: 6,
     designer: "Hans J. Wegner",
     imgPath: "assets/img/product_img/ch23.png",
-    store: ["軽井沢", "佐久", "安曇野", "上田"],
+    store: "佐久店",
 
   },
   {
@@ -62,7 +62,7 @@ export const ProductItems = [
     stockCount: 8,
     designer: "Hans J. Wegner",
     imgPath: "assets/img/product_img/ch29p.png",
-    store: ["軽井沢", "小諸", "松本", "長野"],
+    store:  "松本店", 
   },
   {
     name: "Bar Stool",
@@ -74,7 +74,7 @@ export const ProductItems = [
     stockCount: 4,
     designer: "Hans J. Wegner",
     imgPath: "assets/img/product_img/ch58.png",
-    store: ["軽井沢", "小諸", "茅野", "立科"],
+    store: "茅野店",
   },
   {
     name: "Huntsman Chair",
@@ -86,7 +86,7 @@ export const ProductItems = [
     stockCount: 1,
     designer: "Bø`rge Mogensen",
     imgPath: "assets/img/product_img/bm1106.png",
-    store: ["軽井沢", "佐久", "安曇野", "上田"],
+    store: "安曇野店",
   },
   {
     name: "Embrace Chair",
@@ -98,7 +98,7 @@ export const ProductItems = [
     stockCount: 12,
     designer: "EOOS",
     imgPath: "assets/img/product_img/e004.png",
-    store: ["軽井沢", "小諸", "松本", "長野"],
+    store: "立科店",
   },
   {
     name: "Embrace Armchair",
@@ -110,7 +110,7 @@ export const ProductItems = [
     stockCount: 12,
     designer: "EOOS",
     imgPath: "assets/img/product_img/e005.png",
-    store: ["軽井沢", "小諸", "茅野", "立科"],
+    store: "軽井沢店",
   },
   {
     name: "Faaborg Chair",
@@ -122,7 +122,7 @@ export const ProductItems = [
     stockCount: 2,
     designer: "Kaare Klint",
     imgPath: "assets/img/product_img/kk99620.png",
-    store: ["軽井沢", "佐久", "安曇野", "上田"],
+    store: "安曇野店", 
   },
   {
     name: "Large Red Armchair",
@@ -134,7 +134,7 @@ export const ProductItems = [
     stockCount: 1,
     designer: "Kaare Klint",
     imgPath: "assets/img/product_img/kk37581.png",
-    store: ["軽井沢", "小諸", "松本", "長野"],
+    store:  "長野店",
   },
   {
     name: "T-Chair",
@@ -146,7 +146,7 @@ export const ProductItems = [
     stockCount: 9,
     designer: "Ole Wanscher",
     imgPath: "assets/img/product_img/ow58.png",
-    store: ["軽井沢", "小諸", "茅野", "立科"],
+    store: "茅野店", 
   },
   {
     name: "Oculus Chair",
@@ -158,7 +158,7 @@ export const ProductItems = [
     stockCount: 8,
     designer: "Hans J. Wegner",
     imgPath: "assets/img/product_img/ch468.png",
-    store: ["軽井沢", "佐久", "安曇野", "上田"],
+    store:  "上田店",
   },
   {
     name: "Lounge Chair",
@@ -170,7 +170,7 @@ export const ProductItems = [
     stockCount: 6,
     designer: "Hans J. Wegner",
     imgPath: "assets/img/product_img/ch22.png",
-    store: ["軽井沢", "小諸", "松本", "長野"],
+    store: "松本店",
   },
   {
     name: "Sofa",
@@ -182,7 +182,7 @@ export const ProductItems = [
     stockCount: 5,
     designer: "Hans J. Wegner",
     imgPath: "assets/img/product_img/ch103.png",
-    store: ["軽井沢", "小諸", "茅野", "立科"],
+    store: "立科店",
   },
   {
     name: "Sofa",
@@ -194,7 +194,7 @@ export const ProductItems = [
     stockCount: 10,
     designer: "Hans J. Wegner",
     imgPath: "assets/img/product_img/ch162.png",
-    store: ["軽井沢", "佐久", "安曇野", "上田"],
+    store: "佐久店", 
   },
   {
     name: "Daybed",
@@ -206,7 +206,7 @@ export const ProductItems = [
     stockCount: 4,
     designer: "Børge Mogensen",
     imgPath: "assets/img/product_img/bm0865.png",
-    store: ["軽井沢", "小諸", "松本", "長野"],
+    store: "小諸店",
   },
   {
     name: "Coupe Sofa",
@@ -218,7 +218,7 @@ export const ProductItems = [
     stockCount: 1,
     designer: "Frits Henningsen",
     imgPath: "assets/img/product_img/fh436.png",
-    store: ["軽井沢", "小諸", "茅野", "立科"],
+    store:  "立科店",
   },
   {
     name: "Colonial Sofa",
@@ -230,7 +230,7 @@ export const ProductItems = [
     stockCount: 3,
     designer: "Ole Wanscher",
     imgPath: "assets/img/product_img/ow149.png",
-    store: ["軽井沢", "佐久", "安曇野", "上田"],
+    store: "安曇野店", 
   },
   {
     name: "Daybed",
@@ -242,7 +242,7 @@ export const ProductItems = [
     stockCount: 3,
     designer: "Thomas Bo Kastholm",
     imgPath: "assets/img/product_img/tk8.png",
-    store: ["軽井沢", "小諸", "松本", "長野"],
+    store: "小諸店",
   },
   {
     name: "Coffee Table",
@@ -254,7 +254,7 @@ export const ProductItems = [
     stockCount: 10,
     designer: "Hans J. Wegner",
     imgPath: "assets/img/product_img/ch108.png",
-    store: ["軽井沢", "小諸", "茅野", "立科"],
+    store: "茅野店", 
   },
   {
     name: "Coffee Table",
@@ -266,7 +266,7 @@ export const ProductItems = [
     stockCount: 2,
     designer: "Hans J. Wegner",
     imgPath: "assets/img/product_img/ch011.png",
-    store: ["軽井沢", "佐久", "安曇野", "上田"],
+    store: "上田店",
   },
 ]
 

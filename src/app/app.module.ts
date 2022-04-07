@@ -51,6 +51,8 @@ import { OrderListComponent } from './order-list/order-list.component';
 import { OrderDetailsComponent } from './order-details/order-details.component';
 import { AgmCoreModule } from '@agm/core';
 import { CreateOrderComponent } from './create-order/create-order.component';
+import { StoreStockComponent } from './store-stock/store-stock.component';
+import { StoreDetailsComponent } from './store-details/store-details.component';
 
 
 @NgModule({
@@ -68,6 +70,8 @@ import { CreateOrderComponent } from './create-order/create-order.component';
     OrderListComponent,
     OrderDetailsComponent,
     CreateOrderComponent,
+    StoreStockComponent,
+    StoreDetailsComponent,
     //AuthNoticeComponent,
    
     
@@ -119,7 +123,8 @@ import { CreateOrderComponent } from './create-order/create-order.component';
     OktaSDKAuthService,    
     InventoryPopupComponent,
     OrderDetailsComponent,
-    MatDialogModule
+    MatDialogModule,
+    StoreDetailsComponent,
   ], 
 
   

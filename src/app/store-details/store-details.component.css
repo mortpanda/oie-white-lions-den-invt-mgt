@@ -1,0 +1,55 @@
+.mat-dialog-container {
+  margin-top: 80px !important;
+  border-radius: 5px !important;
+  padding: 5px !important;
+  /* border-style: dotted; */
+  /* width:80%!important; */
+  /* height: 50%!important;  */
+  height: 550px !important;
+  overflow-y: auto !important;
+  
+}
+
+.storeMainContainer {
+  /* border-style: solid !important; */
+  border-width: 1px !important;
+  border-color: #41414b !important;
+  border-radius: 5px !important;
+  color: #ffffff !important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+  width: 100% !important;
+}
+.DivStoreName{
+  background-color: #41414b !important; 
+  color: #ffffff !important;
+  font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
+    "Cantarell", "Helvetica Neue", sans-serif !important;
+  width: 100% !important;
+  text-align: center!important;
+  border-radius: 5px !important;
+  font-size: 18px!important;
+  font-weight: 800!important;
+  padding-top: 5px!important;
+  padding-bottom: 5px!important;
+}
+
+.mapDiv{
+  /* width:300px!important;
+  height:auto!important; */
+  width:100%!important;
+}
+
+agm-map {
+  width: 100% !important;
+  height: 400px !important;
+  /* padding: 10px !important; */
+}
+
+.telDiv{
+  margin-top: 10px!important;
+  margin-bottom: 10px!important;
+  color: #41414b !important;
+  font-size: 16px!important;
+  font-weight: 600!important;
+}
