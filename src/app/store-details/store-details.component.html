@@ -7,21 +7,26 @@
     電話番号 : {{arrStoreDetails.tel}}
   </div>
   <div class="mapDiv">
-    <!-- <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]='false' [mapDraggable]='false'>
+    <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]='false' [mapDraggable]='false'>
       <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-    </agm-map> -->
+    </agm-map>
   </div>
   <div class="storeSotckDiv" fxLayout="columns wrap" fxLayoutAlign="center center" >
     <!-- <div class="ProductName">{{ items.productName }}</div>
     <div class="ProductQuant">{{ items.productCount }}</div> -->
     <table mat-table [dataSource]="arrStoreStock" class="mat-elevation-z8">
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef>店舗</th>
+        <th mat-header-cell *matHeaderCellDef>製品</th>
         <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
       </ng-container>
 
+      <ng-container matColumnDef="itemcode">
+        <th mat-header-cell *matHeaderCellDef>商品コード</th>
+        <td mat-cell *matCellDef="let element"> {{element.productItemcode}} </td>
+      </ng-container>
+
       <ng-container matColumnDef="count">
-        <th mat-header-cell *matHeaderCellDef>電話番号</th>
+        <th mat-header-cell *matHeaderCellDef>在庫個数</th>
         <td mat-cell *matCellDef="let element"> {{element.productCount}} </td>
       </ng-container>
 
