@@ -53,3 +53,33 @@ agm-map {
   font-size: 16px!important;
   font-weight: 600!important;
 }
+
+.storeSotckDiv{
+ margin:5px!important;
+  border-width: 1px!important; 
+ width: 100%!important;
+  color: #41414b !important; 
+}
+.ProductName{
+  border-style: solid!important;
+  border-width: 2px!important;
+  width: 30%!important;
+  background-color: #41414b !important; 
+  color: #FFFFFF!important;
+  padding-left: 10px!important;
+  border-top-left-radius: 5px!important;
+  border-bottom-left-radius: 5px!important;
+  padding-top:5px!important;
+  padding-bottom:5px!important;
+}
+.ProductQuant{
+  border-style: solid!important;
+  border-width: 1px!important; 
+  width: 30%!important;
+  color: #41414b !important; 
+  padding-left: 10px!important;
+  border-top-right-radius: 5px!important;
+  border-bottom-right-radius: 5px!important;
+  padding-top:5px!important;
+  padding-bottom:5px!important;
+}

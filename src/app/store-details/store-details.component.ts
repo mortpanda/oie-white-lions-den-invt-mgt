@@ -3,7 +3,7 @@ import { DataService } from 'app/shared/data-service/data.service';
 import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { ViewEncapsulation } from '@angular/core';
 import { ProductStock, ProductItems } from 'app/shared/product-stock/product-stock';
-
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-store-details',
@@ -19,8 +19,9 @@ export class StoreDetailsComponent implements OnInit {
   constructor(
     public DataService: DataService,
   ) { }
-
+  StockColumns: string[] = ['name', 'count'];
   arrStoreDetails;
+  arrStoreStock=[];
   lat;
   lng;
 
@@ -36,7 +37,7 @@ export class StoreDetailsComponent implements OnInit {
 
   }
 
-  arrStoreStock=[];
+  
   GetStoreProducts() {
     for (let i = 0; i < this.ProductItems.length; i++) {
       
@@ -45,7 +46,7 @@ export class StoreDetailsComponent implements OnInit {
           // console.log(this.ProductItems[i].name + " " + this.ProductItems[i].stockCount )
           this.arrStoreStock.push({
             productName:this.ProductItems[i].name,
-            productCount:this.ProductItems[i].stockCount ,
+            productCount:this.ProductItems[i].stockCount,
           })
           break;
         }
