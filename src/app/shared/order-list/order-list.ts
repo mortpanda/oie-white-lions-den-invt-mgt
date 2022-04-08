@@ -57,8 +57,48 @@ export const OrderItems = [
     },
     orderStatus: "輸送中",
   },
-
-
+  {
+    orderID: 90003,
+    manu: "Carl Hansen & Son",
+    itemCode: "CH162",
+    itemCount: 10,
+    itemPrice: 2996000,
+    destShop: "茅野店",
+    eta: 1659941189,
+    currentLoc: {
+      lat: 13.4335422,
+      long: 51.5538883,
+    },
+    orderStatus: "輸送中",
+  },
+  {
+    orderID: 90004,
+    manu: "Carl Hansen & Son",
+    itemCode: "TK8",
+    itemCount: 5,
+    itemPrice: 1996000,
+    destShop: "長野店",
+    eta: 1657262789,
+    currentLoc: {
+      lat: -15.3325458,
+      long: 115.6548863,
+    },
+    orderStatus: "輸送中",
+  },
+  {
+    orderID: 90005,
+    manu: "Carl Hansen & Son",
+    itemCode: "E005",
+    itemCount: 15,
+    itemPrice: 960000,
+    destShop: "上田店",
+    eta: 1654670789,
+    currentLoc: {
+      lat: 19.797944,
+      long: 149.6986853,
+    },
+    orderStatus: "輸送中",
+  },
 
 ]
 

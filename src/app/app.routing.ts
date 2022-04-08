@@ -3,7 +3,6 @@ import { CommonModule, } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 import {LandingComponent} from 'app/landing/landing.component';
-import {SamplePageComponent} from 'app/sample-page/sample-page.component';
 import {StartComponent} from 'app/start/start.component';
 import {InventoryListComponent} from 'app/inventory-list/inventory-list.component';
 import {OrderListComponent} from 'app/order-list/order-list.component';

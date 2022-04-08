@@ -41,9 +41,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {LandingComponent} from 'app/landing/landing.component';
 import {FooterComponent} from 'app/shared/footer/footer.component';
 import { LoginComponent } from 'app/login/login.component';
-import { SamplePageComponent } from './sample-page/sample-page.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { AuthNoticeComponent } from './auth-notice/auth-notice.component';
 import { StartComponent } from './start/start.component';
 import { InventoryListComponent } from './inventory-list/inventory-list.component';
 import { InventoryPopupComponent } from './inventory-popup/inventory-popup.component';
@@ -53,7 +51,7 @@ import { AgmCoreModule } from '@agm/core';
 import { CreateOrderComponent } from './create-order/create-order.component';
 import { StoreStockComponent } from './store-stock/store-stock.component';
 import { StoreDetailsComponent } from './store-details/store-details.component';
-
+import {gmapKey} from 'app/shared/gmaps/gmap-config';
 
 @NgModule({
   declarations: [
@@ -62,8 +60,6 @@ import { StoreDetailsComponent } from './store-details/store-details.component';
     FooterComponent,
     LandingComponent,
     LoginComponent,
-    SamplePageComponent,
-    AuthNoticeComponent,
     StartComponent,
     InventoryListComponent,
     InventoryPopupComponent,
@@ -71,9 +67,7 @@ import { StoreDetailsComponent } from './store-details/store-details.component';
     OrderDetailsComponent,
     CreateOrderComponent,
     StoreStockComponent,
-    StoreDetailsComponent,
-    //AuthNoticeComponent,
-   
+    StoreDetailsComponent,  
     
   ],
   imports: [
@@ -113,7 +107,7 @@ import { StoreDetailsComponent } from './store-details/store-details.component';
     MatNativeDateModule,
     MatProgressBarModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBhAogtW2JFeVgt1BNkwO_Ca8lFCCS73m4',libraries: ['places']
+      apiKey: gmapKey,libraries: ['places']
     })
     
     

@@ -52,6 +52,10 @@ export class OktaWidgetService {
         brand: OktaBrand,
       },
       postLogoutRedirectUri: OktaPostlogoutURI,
+      features: {
+        rememberMe: false,
+        selfServiceUnlock: false,
+      },
       authParams: {
         issuer: OktaIssuer,
         responseMode: OktaResMode,
@@ -60,10 +64,6 @@ export class OktaWidgetService {
         pkce: OktaPKCE,
         prompt: OktaResMode
       },
-      features: {
-        rememberMe: false,
-      },
-      // authClient: oktaAuth,
       useInteractionCodeFlow: 'true',
       
     });

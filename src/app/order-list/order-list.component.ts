@@ -12,7 +12,8 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dial
 import { DataService } from 'app/shared/data-service/data.service';
 import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { OrderDetailsComponent } from 'app/order-details/order-details.component';
-// const ELEMENT_DATA = OrderItems;
+import { RouterModule, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,25 +26,20 @@ export class OrderListComponent implements OnInit {
   private authService = new OktaAuth(this.OktaSDKAuthService.config);
   displayedColumns: string[] = ['orderID', 'orderStatus', 'manu', 'destShop', 'eta'];
   OrderItems = OrderItems;
-  // tableDataSourceFromDisk;
   tableDataSource;
 
   constructor(
     public OktaGetTokenService: OktaGetTokenService,
     public OktaConfigService: OktaConfigService,
     private OktaSDKAuthService: OktaSDKAuthService,
-
     public DataService: DataService,
     public OrderDetailsComponent: OrderDetailsComponent,
     public dialog: MatDialog,
+    private router: Router,
   ) { }
-
-  // OrderListDiskItem;
 
   strUserSession: Boolean;
   async ngOnInit() {
-    // localStorage.setItem('orderList1','');
-
     await this.authService.token.getUserInfo()
       .then(function (user) {
         console.log(user)
@@ -63,19 +59,7 @@ export class OrderListComponent implements OnInit {
       case false:
         await window.location.replace(this.OktaConfigService.strPostLogoutURL);
       case true:
-        // User is logged in
-        // if (localStorage.getItem('orderList') == null) {
-        //   // this.tableDataSourceFromDisk = JSON.parse(localStorage.getItem('orderList'));
-        //   // this.tableDataSource = this.tableDataSourceFromDisk;
-
-        //   localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
-        // }
-        // else {
-
-        //   //  localStorage.setItem('orderList', JSON.stringify(this.OrderItems));
-          this.tableDataSource = JSON.parse(localStorage.getItem('orderList'));
-        //   // this.tableDataSource = this.tableDataSourceFromDisk;
-        // }
+        this.tableDataSource = JSON.parse(localStorage.getItem('orderList'));
         await this.OktaGetTokenService.GetAccessToken()
 
     }
@@ -97,13 +81,10 @@ export class OrderListComponent implements OnInit {
     this.DataService.changeMessage(this.itemRow);
   }
 
+  SetDefault() {
+    localStorage.removeItem('orderList');
+    this.router.navigate(['/start']);
 
-  // async LoadOrderTable() {
-  //   // this.tableDataSource = new MatTableDataSource(localStorage.getItem('orderList'));
-  //   // this.tableDataSourceFromDisk = await JSON.parse(localStorage.getItem('orderList'));
-  //   // // ELEMENT_DATA = this.tableDataSource;
-  //   // this.tableDataSource = await this.tableDataSourceFromDisk;
-
-  // }
+  }
 
 }
