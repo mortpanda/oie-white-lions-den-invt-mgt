@@ -22,7 +22,7 @@ export class StoreStockComponent implements OnInit {
   @ViewChild(MatAccordion) accordion: MatAccordion;
   private authService = new OktaAuth(this.OktaSDKAuthService.config);
   StoreItems = StoreItems;
-  StoreListColumns: string[] = ['name', 'tel'];
+  StoreListColumns: string[] = ['name', 'address', 'tel'];
 
   constructor(
     public OktaGetTokenService: OktaGetTokenService,

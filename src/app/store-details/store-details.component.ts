@@ -4,6 +4,9 @@ import { Subject, BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { ViewEncapsulation } from '@angular/core';
 import { ProductStock, ProductItems } from 'app/shared/product-stock/product-stock';
 import { MatTableDataSource } from '@angular/material/table';
+import { MAT_DIALOG_DATA, MatDialogRef, MatDialog } from '@angular/material/dialog';
+
+import { InventoryPopupComponent } from 'app/inventory-popup/inventory-popup.component';
 
 @Component({
   selector: 'app-store-details',
@@ -18,6 +21,9 @@ export class StoreDetailsComponent implements OnInit {
   ProductItems = ProductItems;
   constructor(
     public DataService: DataService,
+    public dialog: MatDialog,
+    public InventoryPopupComponent: InventoryPopupComponent,
+    
   ) { }
   StockColumns: string[] = ['name', 'itemcode','count'];
   arrStoreDetails;
@@ -39,6 +45,19 @@ export class StoreDetailsComponent implements OnInit {
 
   }
 
+  itemRow;
+  OpenItem(row): void {
+    let dialogRef = this.dialog.open(InventoryPopupComponent, {
+      width: 'auto', height: 'auto',
+      data: { row },
+    });
+
+    dialogRef.afterClosed().subscribe(result => { row = result; });
+    // console.log('Row clicked: ', row);
+    this.itemRow = row;
+    console.log(this.itemRow);
+    this.DataService.changeMessage(this.itemRow);
+  }
 
   GetStoreProducts() {
     for (let i = 0; i < this.ProductItems.length; i++) {
@@ -47,9 +66,16 @@ export class StoreDetailsComponent implements OnInit {
         case this.arrStoreDetails.name: {
           // console.log(this.ProductItems[i].name + " " + this.ProductItems[i].stockCount )
           this.arrStoreStock.push({
-            productName: this.ProductItems[i].name,
-            productCount: this.ProductItems[i].stockCount,
-            productItemcode:this.ProductItems[i].itemcode,
+            name: this.ProductItems[i].name,
+            stockCount: this.ProductItems[i].stockCount,
+            itemcode:this.ProductItems[i].itemcode,
+            desc:this.ProductItems[i].desc,
+            manu:this.ProductItems[i].manu,
+            itemPrice:this.ProductItems[i].itemPrice,
+            designer:this.ProductItems[i].designer,
+            imgPath:this.ProductItems[i].imgPath,
+            store:this.ProductItems[i].store,
+
           })
           break;
         }
@@ -61,3 +87,4 @@ export class StoreDetailsComponent implements OnInit {
   }
 
 }
+
