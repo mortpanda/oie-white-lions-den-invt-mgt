@@ -54,6 +54,7 @@ body {
   font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
     "Cantarell", "Helvetica Neue", sans-serif!important;
     text-align: center!important;
+    width: 50%;
 }
 .mainLogo{
   width:500px!important;
@@ -77,7 +78,7 @@ body {
 }
 
 .appName{
-  
+  text-align: center!important;
   font-size: 20px!important;
   color: #41414B!important;
   font-family: "ABCWhyte Book", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen-Sans", "Ubuntu",
