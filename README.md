@@ -1,4 +1,4 @@
-# angular-okta-japan-template-v3
+# oie-white-lions-den-invt-mgt
 
 # THIS IS NOT AN OFFICIAL TEMPLATE.  
 This is was created for personal projects.
@@ -65,4 +65,10 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Screenshots
 <img src="/Capture.PNG" alt="drawing" width="600"/>
-
+<img src="/Capture2.PNG" alt="drawing" width="600"/>
+<img src="/Capture3.PNG" alt="drawing" width="600"/>
+<img src="/Capture4.PNG" alt="drawing" width="600"/>
+<img src="/Capture5.PNG" alt="drawing" width="600"/>
+<img src="/Capture6.PNG" alt="drawing" width="600"/>
+<img src="/Capture7.PNG" alt="drawing" width="600"/>
+<img src="/Capture8.PNG" alt="drawing" width="600"/>
