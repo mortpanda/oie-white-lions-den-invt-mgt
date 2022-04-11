@@ -9,7 +9,7 @@
   </div>
   <div class="orderDetails" fxLayout="rows wrap" fxLayoutAlign="start start">
     <div class="orderManuHead">納品予定日</div>
-    <div class="orderManu">{{arrOrderDetails.eta * 1000 | date:jpn}}</div>
+    <div class="orderManu">{{arrOrderDetails.eta * 1000 | date:'MMM d, y'}}</div>
     <div class="orderManuHead">発送状況</div>
     <div class="orderManu strStatus">{{arrOrderDetails.orderStatus}}</div>
   </div>

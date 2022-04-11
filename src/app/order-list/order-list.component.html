@@ -35,8 +35,7 @@
 
           <ng-container matColumnDef="eta">
             <th mat-header-cell *matHeaderCellDef>納品予定日</th>
-            <!-- <td mat-cell *matCellDef="let element"> {{element.eta * 1000 | date:jpn}} </td> -->
-            <td mat-cell *matCellDef="let element"> {{element.eta * 1000 | date:jpn}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.eta * 1000 | date:'MMM d, y'}} </td>
           </ng-container>
 
 
