@@ -34,7 +34,10 @@ export class OrderDetailsComponent implements OnInit {
     this.arrOrderDetails = this.selectedMessage;
     this.arrOrderItems = this.arrOrderDetails.orderInfo;
     this.SubTotal = this.arrOrderDetails.itemPrice * this.arrOrderDetails.itemCount;
-    this.GrandTotal=this.SubTotal;
+    this.GrandTotal = this.SubTotal;
+    this.itemCountTotal = this.arrOrderDetails.itemCount;
+    console.log(this.arrOrderDetails)
+
 
     // for (let i in this.arrOrderItems) {
     //   // console.log(this.arrOrderItems[i]);
@@ -45,13 +48,13 @@ export class OrderDetailsComponent implements OnInit {
     //   // console.log(this.SubTotal)
     // }
 
-    
-    this.lat=this.arrOrderDetails.currentLoc.lat;
-    this.lng=this.arrOrderDetails.currentLoc.long;
 
-    
-      
-    
+    this.lat = this.arrOrderDetails.currentLoc.lat;
+    this.lng = this.arrOrderDetails.currentLoc.long;
+
+
+
+
   }
 
 }
