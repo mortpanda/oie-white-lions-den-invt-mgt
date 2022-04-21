@@ -113,8 +113,15 @@ export class NavbarComponent implements OnInit {
       }
 
       Logout(){
+          try{
+            sessionStorage.removeItem('okta-transaction-storage');  
+            
+          }
+          catch{
+
+          }
           this.OktaSDKAuthService.OktaSDKAuthClient.signOut()
-        //   okta-transaction-storage
+          
       }
 
 }
