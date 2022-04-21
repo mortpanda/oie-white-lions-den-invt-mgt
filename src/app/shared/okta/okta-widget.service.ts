@@ -55,6 +55,8 @@ export class OktaWidgetService {
       features: {
         rememberMe: false,
         selfServiceUnlock: false,
+        hideSignOutLinkInMFA: false,
+        
       },
       authParams: {
         issuer: OktaIssuer,
@@ -67,7 +69,23 @@ export class OktaWidgetService {
       useInteractionCodeFlow: 'true',
       
     });
-    console.log(OktaScope)
+    console.log(OktaScope);
+    oktaSignIn.on('afterRender', function (context) {
+      // document.getElementById('okta-login-container').remove();
+      let element: HTMLElement = document.getElementsByClassName('js-go-back')[0] as HTMLElement;
+      element.remove();    
+
+
+      var button = document.createElement('input');
+      button.setAttribute('type', 'submit');
+      button.setAttribute('ID', 'btnLink');
+      button.setAttribute('value', 'Click me!');
+      button.setAttribute('onclick', 'GoToURL()');
+      button.setAttribute('form', 'myform');
+      document.body.appendChild(button);
+      button.setAttribute("class", "btn btn-primary");
+
+    })
     await oktaSignIn.showSignInToGetTokens({
       el: '#okta-signin-container'
     }).then(function (tokens) {
@@ -134,7 +152,7 @@ CloseWidget() {
 
 }
 
-
+// document.getElementById('okta-login-container').remove();
 
 // import { Injectable } from "@angular/core";
 // import { Router } from "@angular/router";
